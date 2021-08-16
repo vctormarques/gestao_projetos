@@ -11,17 +11,23 @@ use App\Atividade;
 
 class ProjetosController extends Controller
 {
-    public function index(){
-        // $lista = Projeto::all();
 
+    public function index(){
         $projetos =  DB::table('projetos')
-        ->select('projetos.id', 'projeto.nome', 'COALESCE((select count(*) from atividades where projeto_id=P.id and finalizada=1 and status <> 0),0) AS finalizadas')
+        ->select('projetos.id', 'projetos.nome','projetos.data_inicial','projetos.data_final', 
+        (DB::raw("
+        (SELECT MAX(data_final) from atividades where atividades.projeto_id = projetos.id AND status <> 0) ultima_data,
+        #(select count(*) from atividades where projeto_id=projetos.id and finalizada=1 and status <> 0) finalizadas, 
+        (select count(*) from atividades where projeto_id=projetos.id and status <> 0) todas_atividades,
+        coalesce(((select count(*) from atividades where projeto_id=projetos.id and finalizada=1 and status <> 0) / 
+        (select count(*) from atividades where projeto_id=projetos.id and status <> 0))*100,0) percentual_finalizado")))
         ->get();
 
         return view('index', ['projetos' => $projetos]);
     }
 
     public function show($id){
+
         $projeto = Projeto::findOrFail($id);
         $atividades = Atividade::where('projeto_id',$id)
                                 ->where('status', '1')
@@ -29,6 +35,7 @@ class ProjetosController extends Controller
         return view('projeto.visualizar', ['projeto' => $projeto, 'atividades' => $atividades]);
     }
 
+    
     public function store(Request $request){
 
         Projeto::create([
