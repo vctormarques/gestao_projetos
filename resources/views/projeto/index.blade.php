@@ -14,7 +14,7 @@
                             <th>Data Inicial</th>
                             <th>Data Final</th>
                             <!-- <th>Qtd Atividades</th> -->
-                            <th>% Completo</th>
+                            <th>% Completo</th> 
                             <th>Atrasado</th>
                         </tr>
                     </thead>
@@ -33,7 +33,7 @@
                                     <div class="progress">
                                         <div class="progress-bar bg-success" role="progressbar" style="width: {{ $projeto->percentual_finalizado }}%;" aria-valuenow="{{ $projeto->percentual_finalizado }}" aria-valuemin="0" aria-valuemax="100">{{ number_format($projeto->percentual_finalizado, 2, ',', '.') }}%</div>
                                     </div>    
-                                </td>
+                                </td> 
                                 <td>
                                     {{ ($projeto->data_final > $projeto->ultima_data) ? "Sim" : "Não" }}
                                 </td>
