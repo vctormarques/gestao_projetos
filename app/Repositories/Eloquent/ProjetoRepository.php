@@ -13,7 +13,6 @@ class ProjetoRepository extends AbstractRepository implements ProjetoRepositoryI
     protected $model = Projeto::class;
 
     public function all(){
-
         $projetos =  DB::table('projetos')
         ->select('projetos.id', 'projetos.nome','projetos.data_inicial','projetos.data_final', 
         (DB::raw("
@@ -23,9 +22,7 @@ class ProjetoRepository extends AbstractRepository implements ProjetoRepositoryI
         coalesce(((select count(*) from atividades where projeto_id=projetos.id and finalizada=1 and status <> 0) / 
         (select count(*) from atividades where projeto_id=projetos.id and status <> 0))*100,0) percentual_finalizado")))
         ->get();
-
         return $projetos;
-        
     }
 
     public function store($data){
@@ -34,9 +31,11 @@ class ProjetoRepository extends AbstractRepository implements ProjetoRepositoryI
             'data_inicial' => Carbon::createFromFormat('d/m/Y', $data['dataInicial'])->format('Y-m-d'), 
             'data_final' => Carbon::createFromFormat('d/m/Y', $data['dataFinal'])->format('Y-m-d') 
         ]);
+    }
 
-        return $data['nome'];
-
+    public function show($data){
+        $projetos = $this->model::findOrFail($data);
+        return $projetos;
     }
 
 }

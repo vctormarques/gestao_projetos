@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', ['as' => 'index', 'uses' => 'ProjetosController@index']);
 Route::get('/projeto/{id}', ['as' => 'visualizar.projeto', 'uses' => 'ProjetosController@show']);
 Route::post('/projeto', ['as' => 'adicionar.projeto', 'uses' => 'ProjetosController@store']);
-
 Route::post('/adicionar-atividade', ['as' => 'adicionar.atividade', 'uses' => 'AtividadesController@store']);
 Route::post('/editar-atividade', ['as' => 'editar.atividade', 'uses' => 'AtividadesController@editar']);
 Route::post('/concluir-atividade', ['as' => 'concluir.atividade', 'uses' => 'AtividadesController@concluir']);

@@ -7,7 +7,7 @@
         <h5 class="modal-title" id="addProjetoLabel">Cadastrar projeto</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-        <form action="{{ route('adicionar.projeto') }}" method="post" enctype="multipart/form" id="formAdicionarProjeto">
+        <form action="{{ route('adicionar.projeto') }}" method="post" enctype="multipart/form" id="formAdicionarProjeto" autocomplete="off">
             <div class="modal-body">
                 @csrf
                 <div class="row">
@@ -43,7 +43,7 @@
         <h5 class="modal-title" id="addAtividadeModalLabel">Adicionar atividade</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-        <form action="{{ route('adicionar.atividade') }}" method="post" enctype="multipart/form" id="formAdicionarAtividade">
+        <form action="{{ route('adicionar.atividade') }}" method="post" enctype="multipart/form" id="formAdicionarAtividade" autocomplete="off">
             <div class="modal-body">
                 <input type="hidden" class='form-control projeto_id' name="projeto_id" id="projeto_id">
                 @csrf
@@ -80,7 +80,7 @@
         <h5 class="modal-title" id="editarAtividadeLabel">Editar atividade</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-        <form action="{{ route('editar.atividade') }}" method="post" enctype="multipart/form" id="formEditarAtividade">
+        <form action="{{ route('editar.atividade') }}" method="post" enctype="multipart/form" id="formEditarAtividade" autocomplete="off">
             <div class="modal-body">
                 <input type="hidden" class='form-control atividade_id' name="atividade_id" id="atividade_id">
                 <input type="hidden" class='form-control projeto_id' name="projeto_id" id="projeto_id">

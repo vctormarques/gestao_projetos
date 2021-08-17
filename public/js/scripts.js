@@ -36,7 +36,7 @@ $('#excluirAtividade').on('show.bs.modal', function (event) {
 $(document).ready(function () {
     setTimeout(function () {
         $(".succes-alert").slideToggle('slow');
-    }, 2000);
+    }, 1500);
 });
 
 $(function () {

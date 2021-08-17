@@ -7,4 +7,6 @@ interface ProjetoRepositoryInterface
     public function all();
     
     public function store(array $data);
+    
+    public function show($data);
 }
