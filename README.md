@@ -28,5 +28,5 @@
 
 <h5>Projeto para visualização e teste</h5>
 <ul>
-    <li><a href="https://eaux.zirak.com.br/" target="_blank">https://eaux.zirak.com.br/</a></li>
+    <li><a href="https://euax.zirak.com.br/" target="_blank">https://euax.zirak.com.br/</a></li>
 </ul>
