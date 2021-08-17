@@ -35,7 +35,7 @@
                                     </div>    
                                 </td> 
                                 <td>
-                                    {{ ($projeto->data_final > $projeto->ultima_data) ? "Sim" : "Não" }}
+                                    {{ ($projeto->data_final >= $projeto->ultima_data) ? "Não" : "Sim" }}
                                 </td>
                             </tr>
                         @endforeach

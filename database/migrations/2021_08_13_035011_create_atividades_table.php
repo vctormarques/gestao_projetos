@@ -21,8 +21,8 @@ class CreateAtividadesTable extends Migration
                 ->on('projetos')
                 ->onDelete('cascade');
             $table->string('nome');
-            $table->string('data_inicial');
-            $table->string('data_final');
+            $table->date('data_inicial');
+            $table->date('data_final');
             $table->boolean('finalizada')->nullable();;
             $table->boolean('status')->default(1);;
             $table->timestamps();
